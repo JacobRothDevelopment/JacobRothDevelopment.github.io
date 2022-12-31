@@ -1,0 +1,4 @@
+.table.table-borderless td,
+.table.table-borderless tr {
+  border: none;
+}
