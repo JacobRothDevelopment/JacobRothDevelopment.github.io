@@ -23,48 +23,34 @@
     <div class="container min-vh-100 d-flex flex-column justify-content-center">
         <div class="row justify-content-center">
             <div class="col-md-6 align-self-center">
-                <form>
-                    <table class="table table-borderless">
-                        <tr>
-                            <td class="align-middle">
-                                <label for="intLength" class="form-label">Length</label>
-                            </td>
-                            <td class="align-middle">
-                                <label id="intLengthValue" for="intLength" class="form-label">00</label>
-                            </td>
-                            <td colspan="2" class="align-middle">
-                                <input id="intLength" type="range" class="form-control text-center" value="28" step="1"
-                                    min="10" max="48" onchange="updateLengthLabel()" oninput="updateLengthLabel()">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle" colspan="4">
-                                <input id="textOutput" type="text" class="form-control">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle" colspan="4">
-                                <button type="button" class="btn btn-primary w-100" onclick="generatePassword()">
-                                    Click For New Password
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle" colspan="4">
-                                <button type="button" class="btn btn-info w-100" onclick="copyToClipboard()">
-                                    Copy
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle" colspan="4">
-                                <button type="button" class="btn btn-danger w-100" onclick="clearOutput()">
-                                    Reset
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
+                <div class="row mb-3">
+                    <div class="col-2 align-self-center">
+                        <label class="form-label m-0" for="intLength">Length</label>
+                    </div>
+                    <div class="col-1 align-self-center">
+                        <label id="intLengthValue" class="form-label m-0" for="intLength">00</label>
+                    </div>
+                    <div class="col-9">
+                        <input id="intLength" type="range" class="form-control" value="28" step="1" min="8" max="48"
+                            onchange="updateLengthLabel()" oninput="updateLengthLabel()">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col"><input id="textOutput" type="text" class="form-control text-center"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col"><button type="button" class="btn btn-primary w-100"
+                            onclick="generatePassword()">Click For New Password</button></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col"><button type="button" class="btn btn-info w-100"
+                            onclick="copyToClipboard()">Copy</button></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col"><button type="button" class="btn btn-danger w-100"
+                            onclick="clearOutput()">Reset</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
