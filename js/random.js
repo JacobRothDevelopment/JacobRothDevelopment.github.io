@@ -34,7 +34,7 @@ function clearOutput() {
 }
 
 function setOutput(string) {
-  document.getElementById(outputId).value = string;
+  document.getElementById(outputId).innerHTML = string;
 }
 
 function getRandomInt(min, max) {
@@ -42,7 +42,7 @@ function getRandomInt(min, max) {
 }
 
 function copyToClipboard() {
-  const pw = document.getElementById(outputId).value;
+  const pw = document.getElementById(outputId).innerHTML;
   navigator.clipboard.writeText(pw);
 }
 
