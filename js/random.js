@@ -49,6 +49,4 @@ function copyToClipboard() {
 window.onload = function () {
   updateLengthLabel();
   setOutput('');
-
-  const outputElement = document.getElementById(outputId);
 };
