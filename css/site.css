@@ -1,4 +1,36 @@
-.table.table-borderless td,
-.table.table-borderless tr {
+table.table-borderless td,
+table.table-borderless tr {
   border: none;
+}
+
+table.table-layout-fixed{
+  table-layout: fixed;
+}
+
+table.table-border-1 td{
+  border: black 1px solid;
+}
+
+
+/* #region CELL STYLES */
+.cell-white{
+  color: transparent !important;
+}
+.cell-red {
+  /* background-color: red!important; */
+  background-color: rgba(255,0,0,.7) !important;
+}
+.cell-green {
+  /* background-color: lime!important; */
+  background-color: rgba(0, 255, 0, .7) !important;
+}
+.cell-black {
+  /* background-color: grey !important; */
+  background-color: rgba(0, 0, 0, .7) !important;
+  color: white
+}
+/* #endregion CELL STYLES */
+
+.write-vertical{
+  writing-mode: vertical-lr;
 }
