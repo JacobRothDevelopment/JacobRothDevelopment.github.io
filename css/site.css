@@ -7,13 +7,16 @@ table.table-layout-fixed{
   table-layout: fixed;
 }
 
-table.table-border-1 td{
-  border: black 1px solid;
+table.pokemon-types {
+  min-width: 600px;
 }
 
 
 /* #region CELL STYLES */
-.cell-white{
+.cell {
+  border: black 1px solid;
+}
+.cell.cell-white {
   color: transparent !important;
 }
 .cell-red {

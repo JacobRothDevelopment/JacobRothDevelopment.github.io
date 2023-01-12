@@ -42,10 +42,10 @@ const matrix = [
 ];
 
 const cellClasses = {
-  0: 'cell-black',
-  0.5: 'cell-red',
-  1: 'cell-white',
-  2: 'cell-green',
+  0: 'cell cell-black',
+  0.5: 'cell cell-red',
+  1: 'cell cell-white',
+  2: 'cell cell-green',
   Normal: '',
   Fire: '',
   Water: '',
@@ -66,6 +66,8 @@ const cellClasses = {
   Fairy: '',
 };
 
+const selectIds = ['selectAttackType', 'selectDefendType'];
+
 function sanityCheck() {
   if (matrix.length != types.length)
     console.error(`matrix not of proper length`);
@@ -79,7 +81,12 @@ function sanityCheck() {
 
 function createTable() {
   let tempTable = document.createElement('table');
-  let defendingRow = createRow(types, '', '', 'p-1 write-vertical align-top');
+  let defendingRow = createRow(
+    types,
+    '',
+    '',
+    'cell p-1 write-vertical align-top'
+  );
   tempTable.innerHTML += defendingRow.innerHTML;
 
   for (let i = 0; i < types.length; i++) {
@@ -111,7 +118,7 @@ function createRow(row, type, rowClass, cellClass) {
   let tr = document.createElement('tr');
   tr.classList += rowClass;
   let typeCell = createCell(type);
-  typeCell.classList = 'p-1';
+  typeCell.classList = 'cell p-1';
   typeCell.colSpan = 3;
   tr.innerHTML += typeCell.outerHTML;
 
@@ -138,10 +145,59 @@ function createCell(value, cellClass) {
   return td;
 }
 
+function fillTypeSelects() {
+  let selects = document.querySelectorAll('select[data-fill-types="true"]');
+
+  selects.forEach((select) => {
+    setOptions(select, types);
+  });
+}
+
+/**
+ * @param {HTMLSelectElement} selectElement
+ * @param {Map<int,string>} map
+ */
+function setOptions(selectElement, map) {
+  // clear options
+  selectElement.innerHTML = '';
+
+  for (let i = 0; i < map.length; i++) {
+    let option = document.createElement('option');
+    option.innerHTML = map[i];
+    option.value = i;
+    selectElement.innerHTML += option.outerHTML;
+  }
+}
+
+function updateOutput() {
+  let attackIndex = document.getElementById('selectAttackType').value;
+  let defendIndex = document.getElementById('selectDefendType').value;
+  let advantage = matrix[attackIndex][defendIndex];
+  // set output
+  let output = document.getElementById('textOutput');
+  output.innerHTML = advantage;
+  output.value = advantage;
+  output.classList = `form-control ${cellClasses[advantage]}`;
+}
+
+function createSelectListeners() {
+  selectIds.forEach((selectId) => {
+    document.getElementById(selectId).addEventListener('change', () => {
+      console.log('here');
+      updateOutput();
+    });
+  });
+}
+
+// #region ON LOAD
 // when script loads, make sure the matrix makes sense
 sanityCheck();
 
 // on page load, create the info table
 window.onload = function () {
   createTable();
+  fillTypeSelects();
+  createSelectListeners();
+  updateOutput();
 };
+// #endregion ON LOAD

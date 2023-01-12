@@ -21,10 +21,32 @@
 
 <body>
     <div class="container min-vh-100 d-flex flex-column justify-content-center">
-        <div class="col-12">
-            <div class="row">
-                <table id="tableTypes" class="table-layout-fixed table-border-1">
-                </table>
+        <div class="row">
+            <div class="col-12 col-lg-4 col-xl-6 mb-4">
+                <form>
+                    <div class="mb-3">
+                        <label for="selectAttackType" class="form-label">Attacking Move Type</label>
+                        <select id="selectAttackType" name="selectAttackType" class="form-select form-select-lg"
+                            data-fill-types="true">
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="selectDefendType" class="form-label">Defending Mon Type</label>
+                        <select id="selectDefendType" name="selectDefendType" class="form-select form-select-lg"
+                            data-fill-types="true">
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="textOutput" class="form-label">Advantage</label>
+                        <input id="textOutput" class="form-control" type="text" disabled></span>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-lg-8 col-xl-6 mb-4">
+                <div class="row">
+                    <table id="tableTypes" class="table-layout-fixed table-border-1 pokemon-types">
+                    </table>
+                </div>
             </div>
         </div>
     </div>
