@@ -1,18 +1,16 @@
+/* #region TABLE STYLES */
 table.table-borderless td,
 table.table-borderless tr {
   border: none;
 }
 
-table.table-layout-fixed{
+table.table-layout-fixed {
   table-layout: fixed;
 }
 
 table.pokemon-types {
   min-width: 600px;
 }
-
-
-/* #region CELL STYLES */
 .cell {
   border: black 1px solid;
 }
@@ -21,19 +19,33 @@ table.pokemon-types {
 }
 .cell-red {
   /* background-color: red!important; */
-  background-color: rgba(255,0,0,.7) !important;
+  background-color: rgba(255, 0, 0, 0.7) !important;
 }
 .cell-green {
   /* background-color: lime!important; */
-  background-color: rgba(0, 255, 0, .7) !important;
+  background-color: rgba(0, 255, 0, 0.7) !important;
 }
 .cell-black {
   /* background-color: grey !important; */
-  background-color: rgba(0, 0, 0, .7) !important;
-  color: white
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  color: white;
 }
-/* #endregion CELL STYLES */
+/* #endregion TABLE STYLES */
 
-.write-vertical{
+/* #region TEXT */
+.write-vertical {
   writing-mode: vertical-lr;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+/* #endregion TEXT */
+
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
+
+.cursor-default {
+  cursor: default !important;
 }

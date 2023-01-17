@@ -1,0 +1,192 @@
+:root {
+  --normal: #aa9;
+  --fire: #f42;
+  --water: #39f;
+  --electric: #fc3;
+  --grass: #7c5;
+  --ice: #6cf;
+  --fighting: #b54;
+  --poison: #a59;
+  --ground: #db5;
+  --flying: #89f;
+  --psychic: #f59;
+  --bug: #ab2;
+  --rock: #ba6;
+  --ghost: #66b;
+  --dragon: #76e;
+  --dark: #754;
+  --steel: #aab;
+  --fairy: #e9e;
+}
+
+.type-normal {
+  background-color: var(--normal);
+}
+
+.type-fire {
+  background-color: var(--fire);
+}
+
+.type-water {
+  background-color: var(--water);
+}
+
+.type-electric {
+  background-color: var(--electric);
+}
+
+.type-grass {
+  background-color: var(--grass);
+}
+
+.type-ice {
+  background-color: var(--ice);
+}
+
+.type-fighting {
+  background-color: var(--fighting);
+}
+
+.type-poison {
+  background-color: var(--poison);
+}
+
+.type-ground {
+  background-color: var(--ground);
+}
+
+.type-flying {
+  background-color: var(--flying);
+}
+
+.type-psychic {
+  background-color: var(--psychic);
+}
+
+.type-bug {
+  background-color: var(--bug);
+}
+
+.type-rock {
+  background-color: var(--rock);
+}
+
+.type-ghost {
+  background-color: var(--ghost);
+}
+
+.type-dragon {
+  background-color: var(--dragon);
+}
+
+.type-dark {
+  background-color: var(--dark);
+}
+
+.type-steel {
+  background-color: var(--steel);
+}
+
+.type-fairy {
+  background-color: var(--fairy);
+}
+
+select[data-selected-type=normal] {
+  background: linear-gradient(to bottom right, white 50%, var(--normal)) !important;
+}
+
+select[data-selected-type=fire] {
+  background: linear-gradient(to bottom right, white 50%, var(--fire)) !important;
+}
+
+select[data-selected-type=water] {
+  background: linear-gradient(to bottom right, white 50%, var(--water)) !important;
+}
+
+select[data-selected-type=electric] {
+  background: linear-gradient(to bottom right, white 50%, var(--electric)) !important;
+}
+
+select[data-selected-type=grass] {
+  background: linear-gradient(to bottom right, white 50%, var(--grass)) !important;
+}
+
+select[data-selected-type=ice] {
+  background: linear-gradient(to bottom right, white 50%, var(--ice)) !important;
+}
+
+select[data-selected-type=fighting] {
+  background: linear-gradient(to bottom right, white 50%, var(--fighting)) !important;
+}
+
+select[data-selected-type=poison] {
+  background: linear-gradient(to bottom right, white 50%, var(--poison)) !important;
+}
+
+select[data-selected-type=ground] {
+  background: linear-gradient(to bottom right, white 50%, var(--ground)) !important;
+}
+
+select[data-selected-type=flying] {
+  background: linear-gradient(to bottom right, white 50%, var(--flying)) !important;
+}
+
+select[data-selected-type=psychic] {
+  background: linear-gradient(to bottom right, white 50%, var(--psychic)) !important;
+}
+
+select[data-selected-type=bug] {
+  background: linear-gradient(to bottom right, white 50%, var(--bug)) !important;
+}
+
+select[data-selected-type=rock] {
+  background: linear-gradient(to bottom right, white 50%, var(--rock)) !important;
+}
+
+select[data-selected-type=ghost] {
+  background: linear-gradient(to bottom right, white 50%, var(--ghost)) !important;
+}
+
+select[data-selected-type=dragon] {
+  background: linear-gradient(to bottom right, white 50%, var(--dragon)) !important;
+}
+
+select[data-selected-type=dark] {
+  background: linear-gradient(to bottom right, white 50%, var(--dark)) !important;
+}
+
+select[data-selected-type=steel] {
+  background: linear-gradient(to bottom right, white 50%, var(--steel)) !important;
+}
+
+select[data-selected-type=fairy] {
+  background: linear-gradient(to bottom right, white 50%, var(--fairy)) !important;
+}
+
+/* #region ADVANTAGES */
+.advantage-0 {
+  background-color: black !important;
+  color: lightgrey;
+}
+
+.advantage-half {
+  background-color: grey !important;
+  color: black;
+}
+
+.advantage-1 {
+  background-color: white !important;
+  color: black;
+}
+
+.advantage-2 {
+  background-color: green !important;
+  color: lightgrey;
+}
+
+.advantage-4 {
+  background-color: green !important;
+  color: white;
+}
+
+/* #endregion ADVANTAGES *//*# sourceMappingURL=pokemon.css.map */

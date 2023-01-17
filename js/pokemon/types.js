@@ -1,3 +1,4 @@
+//#region CONST
 const types = [
   'Normal',
   'Fire',
@@ -15,7 +16,7 @@ const types = [
   'Ghost',
   'Dragon',
   'Dark',
-  'Steele',
+  'Steel',
   'Fairy',
 ];
 
@@ -46,27 +47,57 @@ const cellClasses = {
   0.5: 'cell cell-red',
   1: 'cell cell-white',
   2: 'cell cell-green',
-  Normal: '',
-  Fire: '',
-  Water: '',
-  Grass: '',
-  Electric: '',
-  Ice: '',
-  Fighting: '',
-  Poison: '',
-  Ground: '',
-  Flying: '',
-  Psychic: '',
-  Bug: '',
-  Rock: '',
-  Ghost: '',
-  Dragon: '',
-  Dark: '',
-  Steele: '',
-  Fairy: '',
+  Normal: 'type-normal',
+  Fire: 'type-fire',
+  Water: 'type-water',
+  Grass: 'type-grass',
+  Electric: 'type-electric',
+  Ice: 'type-ice',
+  Fighting: 'type-fighting',
+  Poison: 'type-poison',
+  Ground: 'type-ground',
+  Flying: 'type-flying',
+  Psychic: 'type-psychic',
+  Bug: 'type-bug',
+  Rock: 'type-rock',
+  Ghost: 'type-ghost',
+  Dragon: 'type-dragon',
+  Dark: 'type-dark',
+  Steel: 'type-steel',
+  Fairy: 'type-fairy',
 };
 
-const selectIds = ['selectAttackType', 'selectDefendType'];
+const outputConfig = {
+  0: {
+    text: 'Not Effective',
+    class: 'advantage-0',
+  },
+  0.5: {
+    text: 'Not Very Effective',
+    class: 'advantage-half',
+  },
+  1: {
+    text: 'Effective',
+    class: 'advantage-1',
+  },
+  2: {
+    text: 'Super Effective',
+    class: 'advantage-2',
+  },
+  4: {
+    text: 'Super (duper) Effective',
+    class: 'advantage-4',
+  },
+};
+
+const selectIds = [
+  'selectAttackType',
+  'selectDefendType1',
+  'selectDefendType2',
+];
+
+const selectDatasetName = 'selectedType';
+//#endregion CONST
 
 function sanityCheck() {
   if (matrix.length != types.length)
@@ -85,7 +116,7 @@ function createTable() {
     types,
     '',
     '',
-    'cell p-1 write-vertical align-top'
+    'cell p-1 write-vertical align-top font-weight-bold'
   );
   tempTable.innerHTML += defendingRow.innerHTML;
 
@@ -117,8 +148,10 @@ function createTable() {
 function createRow(row, type, rowClass, cellClass) {
   let tr = document.createElement('tr');
   tr.classList += rowClass;
-  let typeCell = createCell(type);
-  typeCell.classList = 'cell p-1';
+  let typeCell = createCell(
+    type,
+    `cell p-1 font-weight-bold ${cellClasses[type]}`
+  );
   typeCell.colSpan = 3;
   tr.innerHTML += typeCell.outerHTML;
 
@@ -161,32 +194,69 @@ function setOptions(selectElement, map) {
   // clear options
   selectElement.innerHTML = '';
 
+  // if options-allow-null == 'true', add first element as empty choice
+  if (
+    'optionsAllowNull' in selectElement.dataset &&
+    selectElement.dataset['optionsAllowNull'] == 'true'
+  ) {
+    let option = document.createElement('option');
+    option.innerHTML = '';
+    option.value = null;
+    selectElement.innerHTML += option.outerHTML;
+  }
+
   for (let i = 0; i < map.length; i++) {
     let option = document.createElement('option');
     option.innerHTML = map[i];
     option.value = i;
+    // option.classList = cellClasses[map[i]];
     selectElement.innerHTML += option.outerHTML;
   }
 }
 
 function updateOutput() {
   let attackIndex = document.getElementById('selectAttackType').value;
-  let defendIndex = document.getElementById('selectDefendType').value;
-  let advantage = matrix[attackIndex][defendIndex];
+  let defending1 = document.getElementById('selectDefendType1').value;
+  let defending2 = document.getElementById('selectDefendType2').value;
+  let advantage1 = matrix[attackIndex][defending1];
+  let advantage2 = matrix[attackIndex][defending2];
+
+  // if defending types are the same or one is null, consider it single typed
+  let advantage = advantage1 * advantage2;
+  if (defending1 === defending2 || defending2 === 'null') {
+    advantage = advantage1;
+  }
+
   // set output
   let output = document.getElementById('textOutput');
-  output.innerHTML = advantage;
-  output.value = advantage;
-  output.classList = `form-control ${cellClasses[advantage]}`;
+  output.innerHTML = outputConfig[advantage].text;
+  output.value = outputConfig[advantage].text;
+  output.classList = `form-control cursor-default ${outputConfig[advantage].class}`;
 }
 
 function createSelectListeners() {
   selectIds.forEach((selectId) => {
-    document.getElementById(selectId).addEventListener('change', () => {
-      console.log('here');
+    document.getElementById(selectId).addEventListener('change', (ev) => {
+      updateSelectStyle(ev.target);
       updateOutput();
     });
   });
+}
+
+/**
+ * @param {HTMLSelectElement} el
+ */
+function updateSelectStyle(el) {
+  let type = el.value in types ? types[el.value].toLowerCase() : '';
+  el.dataset[selectDatasetName] = type;
+}
+
+function updateSelectsStyle() {
+  for (let i = 0; i < selectIds.length; i++) {
+    const selectId = selectIds[i];
+    let select = document.getElementById(selectId);
+    updateSelectStyle(select);
+  }
 }
 
 // #region ON LOAD
@@ -199,5 +269,6 @@ window.onload = function () {
   fillTypeSelects();
   createSelectListeners();
   updateOutput();
+  updateSelectsStyle();
 };
 // #endregion ON LOAD

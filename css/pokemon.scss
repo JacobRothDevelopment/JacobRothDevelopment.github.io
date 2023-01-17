@@ -1,0 +1,65 @@
+$types: 'normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting',
+  'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon',
+  'dark', 'steel', 'fairy';
+
+$advantages: '0', 'half', '1', '2', '4';
+
+:root {
+  --normal: #aa9;
+  --fire: #f42;
+  --water: #39f;
+  --electric: #fc3;
+  --grass: #7c5;
+  --ice: #6cf;
+  --fighting: #b54;
+  --poison: #a59;
+  --ground: #db5;
+  --flying: #89f;
+  --psychic: #f59;
+  --bug: #ab2;
+  --rock: #ba6;
+  --ghost: #66b;
+  --dragon: #76e;
+  --dark: #754;
+  --steel: #aab;
+  --fairy: #e9e;
+}
+
+@each $type in $types {
+  .type-#{$type} {
+    background-color: var(--#{$type});
+  }
+}
+
+@each $type in $types {
+  select[data-selected-type='#{$type}'] {
+    background: linear-gradient(
+      to bottom right,
+      white 50%,
+      var(--#{$type})
+    ) !important;
+  }
+}
+
+/* #region ADVANTAGES */
+.advantage-0 {
+  background-color: black !important;
+  color: lightgrey;
+}
+.advantage-half {
+  background-color: grey !important;
+  color: black;
+}
+.advantage-1 {
+  background-color: white !important;
+  color: black;
+}
+.advantage-2 {
+  background-color: green !important;
+  color: lightgrey;
+}
+.advantage-4 {
+  background-color: green !important;
+  color: white;
+}
+/* #endregion ADVANTAGES */
