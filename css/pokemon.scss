@@ -1,8 +1,8 @@
 $types: 'normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting',
   'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon',
-  'dark', 'steel', 'fairy';
+  'dark', 'steel', 'fairy', 'null';
 
-$advantages: '0', 'half', '1', '2', '4';
+$advantages: '0', 'half', 'quarter', '1', '2', '4';
 
 :root {
   --normal: #aa9;
@@ -23,6 +23,7 @@ $advantages: '0', 'half', '1', '2', '4';
   --dark: #754;
   --steel: #aab;
   --fairy: #e9e;
+  --null: white;
 }
 
 @each $type in $types {
@@ -38,6 +39,7 @@ $advantages: '0', 'half', '1', '2', '4';
       white 50%,
       var(--#{$type})
     ) !important;
+    appearance: revert;
   }
 }
 
@@ -48,7 +50,11 @@ $advantages: '0', 'half', '1', '2', '4';
 }
 .advantage-half {
   background-color: grey !important;
-  color: black;
+  color: lightgrey;
+}
+.advantage-quarter {
+  background-color: grey !important;
+  color: white;
 }
 .advantage-1 {
   background-color: white !important;
@@ -63,3 +69,9 @@ $advantages: '0', 'half', '1', '2', '4';
   color: white;
 }
 /* #endregion ADVANTAGES */
+
+/* #region MISC */
+table.pokemon-types {
+  min-width: 550px;
+}
+/* #endregion MISC */

@@ -72,6 +72,10 @@ const outputConfig = {
     text: 'Not Effective',
     class: 'advantage-0',
   },
+  0.25: {
+    text: '(Very) Not Very Effective',
+    class: 'advantage-quarter',
+  },
   0.5: {
     text: 'Not Very Effective',
     class: 'advantage-half',
@@ -85,7 +89,7 @@ const outputConfig = {
     class: 'advantage-2',
   },
   4: {
-    text: 'Super (duper) Effective',
+    text: 'Super (Duper) Effective',
     class: 'advantage-4',
   },
 };
@@ -112,13 +116,14 @@ function sanityCheck() {
 
 function createTable() {
   let tempTable = document.createElement('table');
+  let tbody = document.createElement('tbody');
   let defendingRow = createRow(
     types,
     '',
     '',
     'cell p-1 write-vertical align-top font-weight-bold'
   );
-  tempTable.innerHTML += defendingRow.innerHTML;
+  tbody.innerHTML += defendingRow.innerHTML;
 
   for (let i = 0; i < types.length; i++) {
     const attackingType = types[i];
@@ -128,7 +133,7 @@ function createTable() {
       '',
       'p-1 text-center text-right'
     );
-    tempTable.innerHTML += row.innerHTML;
+    tbody.innerHTML += row.innerHTML;
   }
 
   // set table data
@@ -136,6 +141,7 @@ function createTable() {
    * @type {HTMLTableElement}
    */
   let tableTypes = document.getElementById('tableTypes');
+  tempTable.innerHTML = tbody.outerHTML;
   tableTypes.innerHTML = tempTable.innerHTML;
 }
 
@@ -247,7 +253,7 @@ function createSelectListeners() {
  * @param {HTMLSelectElement} el
  */
 function updateSelectStyle(el) {
-  let type = el.value in types ? types[el.value].toLowerCase() : '';
+  let type = el.value in types ? types[el.value].toLowerCase() : 'null';
   el.dataset[selectDatasetName] = type;
 }
 
