@@ -44,8 +44,8 @@ const matrix = [
 
 const cellClasses = {
   0: 'cell cell-black',
-  0.5: 'cell cell-red',
-  1: 'cell cell-white',
+  '&#189;': 'cell cell-red',
+  '': 'cell cell-white',
   2: 'cell cell-green',
   Normal: 'type-normal',
   Fire: 'type-fire',
@@ -100,6 +100,13 @@ const selectIds = [
   'selectDefendType2',
 ];
 
+const tableValues = {
+  0: 0,
+  0.5: '&#189;',
+  1: '',
+  2: 2,
+};
+
 const selectDatasetName = 'selectedType';
 //#endregion CONST
 
@@ -114,9 +121,25 @@ function sanityCheck() {
   }
 }
 
+function createTableValuesMatrix() {
+  // clone 2d array like this; it's stupid
+  let newMatrix = JSON.parse(JSON.stringify(matrix));
+
+  for (let r = 0; r < matrix.length; r++) {
+    const row = newMatrix[r];
+    for (let e = 0; e < row.length; e++) {
+      newMatrix[r][e] = tableValues[matrix[r][e]];
+    }
+  }
+
+  return newMatrix;
+}
+
 function createTable() {
   let tempTable = document.createElement('table');
   let tbody = document.createElement('tbody');
+  const valuesMatrix = createTableValuesMatrix();
+
   let defendingRow = createRow(
     types,
     '',
@@ -128,7 +151,7 @@ function createTable() {
   for (let i = 0; i < types.length; i++) {
     const attackingType = types[i];
     const row = createRow(
-      matrix[i],
+      valuesMatrix[i],
       attackingType,
       '',
       'p-1 text-center text-right'

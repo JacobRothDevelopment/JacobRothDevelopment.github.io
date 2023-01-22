@@ -263,7 +263,7 @@ select[data-selected-type=null] {
 /* #endregion ADVANTAGES */
 /* #region MISC */
 table.pokemon-types {
-  min-width: 550px;
+  min-width: 500px;
 }
 
 /* #endregion MISC *//*# sourceMappingURL=pokemon.css.map */
