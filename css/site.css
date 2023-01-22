@@ -46,3 +46,7 @@ table.table-layout-fixed {
 .cursor-default {
   cursor: default !important;
 }
+
+.min-vh-90 {
+  min-height: 90vh !important;
+}

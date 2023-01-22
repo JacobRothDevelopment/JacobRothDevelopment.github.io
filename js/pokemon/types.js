@@ -237,7 +237,7 @@ function updateOutput() {
   let output = document.getElementById('textOutput');
   output.innerHTML = outputConfig[advantage].text;
   output.value = outputConfig[advantage].text;
-  output.classList = `form-control cursor-default ${outputConfig[advantage].class}`;
+  output.classList = `form-control form-control-sm cursor-default ${outputConfig[advantage].class}`;
 }
 
 function createSelectListeners() {
