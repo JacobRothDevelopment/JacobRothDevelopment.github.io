@@ -50,3 +50,26 @@ table.table-layout-fixed {
 .min-vh-90 {
   min-height: 90vh !important;
 }
+
+.options {
+  max-height: 50px;
+  transition: max-height 500ms ease-out;
+  overflow: hidden;
+}
+
+.options.hidden {
+  max-height: 0px;
+  transition: max-height 500ms ease-in;
+}
+
+/* .options {
+  height: 100px;
+  transition: height 1s ease-out;
+  overflow: hidden;
+  background: #d5d5d5;
+}
+
+.options.hidden {
+  height: 0px;
+  transition: height 1s ease-in;
+} */

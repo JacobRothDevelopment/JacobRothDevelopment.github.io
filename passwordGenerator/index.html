@@ -39,32 +39,68 @@
                 <div class="row">
                     <h1 class="my-4">Password Generator</h1>
                 </div>
-                <div class="row mb-3">
+                <div class="row mb-2">
                     <div class="col-2 align-self-center">
                         <label class="form-label m-0" for="intLength">Length</label>
                     </div>
                     <div class="col-1 align-self-center">
                         <label id="intLengthValue" class="form-label m-0" for="intLength">00</label>
                     </div>
-                    <div class="col-9">
+                    <div class="col-7 col-md-8">
                         <input id="intLength" type="range" class="form-control form-control-sm" value="28" step="1"
                             min="8" max="48" onchange="updateLengthLabel()" oninput="updateLengthLabel()">
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col">
-                        <div id="textOutput" type="text" class="form-control form-control-sm text-center"></div>
+                    <div class="col-2 col-md-1">
+                        <button id="btnShowMore" class="w-100 btn btn-sm btn-outline-secondary">
+                            &and;
+                        </button>
                     </div>
                 </div>
-                <div class="row mb-3">
+                <div id="divOptions" class="row mb-2 options hidden">
+                    <div class="col-6 col-lg-3">
+                        <label class="form-label m-0" for="checkCaps" data-toggle="tooltip" data-placement="top"
+                            title="contains: ABCDEFGHIJKLMNOPQRSTUVWXYZ">
+                            Capitals
+                        </label>
+                        <input id="checkCaps" type="checkbox" class="form-checkbox" name="checkCaps" checked>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <label class="form-label m-0" for="checkLows" data-toggle="tooltip" data-placement="top"
+                            title="contains: abcdefghijklmnopqrstuvwxyz">
+                            Lowercase
+                        </label>
+                        <input id="checkLows" type="checkbox" class="form-checkbox" name="checkLows" checked>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <label class="form-label m-0" for="checkNums" data-toggle="tooltip" data-placement="top"
+                            title="contains: 0123456789">
+                            Numbers
+                        </label>
+                        <input id="checkNums" type="checkbox" class="form-checkbox" name="checkNums" checked>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <label class="form-label m-0" for="checkSpec" data-toggle="tooltip" data-placement="top"
+                            title="contains: !@#$%^&*()-_=+,./\|`~;:\'&quot;[]{}">
+                            Specials
+                        </label>
+                        <input id="checkSpec" type="checkbox" class="form-checkbox" name="checkSpec" checked>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col">
+                        <div id="textOutput" type="text" class="form-control form-control-lg text-center overflow-auto">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
                     <div class="col"><button type="button" class="btn btn-primary w-100"
                             onclick="generatePassword()">Click For New Password</button></div>
                 </div>
-                <div class="row mb-3">
+                <div class="row mb-2">
                     <div class="col"><button type="button" class="btn btn-info w-100"
                             onclick="copyToClipboard()">Copy</button></div>
                 </div>
-                <div class="row mb-3">
+                <div class="row mb-2">
                     <div class="col"><button type="button" class="btn btn-danger w-100"
                             onclick="clearOutput()">Reset</button>
                     </div>
