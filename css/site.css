@@ -52,24 +52,10 @@ table.table-layout-fixed {
 }
 
 .options {
-  max-height: 50px;
-  transition: max-height 500ms ease-out;
+  transition: height 500ms ease;
   overflow: hidden;
 }
 
-.options.hidden {
-  max-height: 0px;
-  transition: max-height 500ms ease-in;
-}
-
-/* .options {
-  height: 100px;
-  transition: height 1s ease-out;
-  overflow: hidden;
-  background: #d5d5d5;
-}
-
-.options.hidden {
+.h-0 {
   height: 0px;
-  transition: height 1s ease-in;
-} */
+}

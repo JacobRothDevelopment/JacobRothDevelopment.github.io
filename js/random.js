@@ -76,13 +76,26 @@ function copyToClipboard() {
 
 function createOptionsEvents() {
   document.getElementById(optionsButton).addEventListener('click', (ev) => {
-    document.getElementById(optionsDiv).classList.toggle(hideOptionsClass);
-    document.getElementById(optionsButton).innerHTML = document
-      .getElementById(optionsDiv)
-      .classList.contains(hideOptionsClass)
-      ? '&and;'
-      : '&or;';
+    updateOptionsHeight();
+    updateButtonText();
   });
+}
+
+function updateOptionsHeight() {
+  let currentHeight = document.getElementById(optionsDiv).clientHeight;
+  let childClientHeight =
+    document.getElementById(optionsDiv).children[0].clientHeight;
+  let toHeight = currentHeight === 0 ? childClientHeight : 0;
+  setElementHeight(optionsDiv, toHeight);
+}
+
+function updateButtonText() {
+  document.getElementById(optionsButton).innerHTML =
+    document.getElementById(optionsDiv).clientHeight === 0 ? '&or;' : '&and;';
+}
+
+function setElementHeight(id, pixels) {
+  document.getElementById(id).style.height = `${pixels}px`;
 }
 
 window.onload = function () {
