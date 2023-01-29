@@ -46,10 +46,19 @@ function updateLengthLabel() {
   document.getElementById(lengthValueId).innerHTML = length;
 }
 
-function clearOutput() {
+function reset() {
+  // reset length
   document.getElementById(lengthId).value = defaultLength;
   updateLengthLabel();
+
+  // clear Output
   setOutput('');
+
+  // check all options
+  document.getElementById(checkboxCapitals).checked = true;
+  document.getElementById(checkboxLowercase).checked = true;
+  document.getElementById(checkboxNumbers).checked = true;
+  document.getElementById(checkboxSpecials).checked = true;
 }
 
 function setOutput(string) {
