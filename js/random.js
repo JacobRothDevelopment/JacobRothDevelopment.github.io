@@ -5,8 +5,8 @@ const nums = '0123456789';
 const spec = '!@#$%^&*()-_=+,./\\|`~;:\'"[]{}';
 
 const lengthId = 'intLength';
-const outputId = 'textOutput';
-const lengthValueId = 'intLengthValue';
+const passwordId = 'textOutput';
+const lengthLabelId = 'textLengthValue';
 const optionsButton = 'btnShowMore';
 const optionsDiv = 'divOptions';
 const defaultLength = 28;
@@ -17,7 +17,23 @@ const checkboxNumbers = 'checkNums';
 const checkboxSpecials = 'checkSpec';
 
 const hideOptionsClass = 'hidden';
+const localSettings = 'optionsSettings';
 //#endregion CONST
+
+function createOptionsListeners() {
+  document.getElementById(optionsButton).addEventListener('click', (ev) => {
+    console.log('optionsButton click');
+    updateOptionsHeight();
+    updateButtonText();
+  });
+}
+
+function createLengthListeners() {
+  document.getElementById(lengthId).addEventListener('input', (ev) => {
+    console.log('lengthId input');
+    updateLengthLabel();
+  });
+}
 
 function generatePassword() {
   const chosenChars = getAvailableCharacters();
@@ -43,7 +59,7 @@ function getAvailableCharacters() {
 
 function updateLengthLabel() {
   const length = document.getElementById(lengthId).value;
-  document.getElementById(lengthValueId).innerHTML = length;
+  document.getElementById(lengthLabelId).innerHTML = length;
 }
 
 function reset() {
@@ -59,10 +75,13 @@ function reset() {
   document.getElementById(checkboxLowercase).checked = true;
   document.getElementById(checkboxNumbers).checked = true;
   document.getElementById(checkboxSpecials).checked = true;
+
+  // remove local storage
+  localStorage.removeItem(localSettings);
 }
 
 function setOutput(string) {
-  document.getElementById(outputId).innerHTML = string;
+  document.getElementById(passwordId).innerHTML = string;
 }
 
 function getRandomInt(min, max) {
@@ -70,15 +89,8 @@ function getRandomInt(min, max) {
 }
 
 function copyToClipboard() {
-  const pw = document.getElementById(outputId).innerHTML;
+  const pw = document.getElementById(passwordId).innerHTML;
   navigator.clipboard.writeText(pw);
-}
-
-function createOptionsEvents() {
-  document.getElementById(optionsButton).addEventListener('click', (ev) => {
-    updateOptionsHeight();
-    updateButtonText();
-  });
 }
 
 function updateOptionsHeight() {
@@ -98,8 +110,38 @@ function setElementHeight(id, pixels) {
   document.getElementById(id).style.height = `${pixels}px`;
 }
 
+function saveSettings() {
+  let optionsSettings = {
+    length: document.getElementById(lengthId).value,
+    checkCaps: document.getElementById(checkboxCapitals).checked,
+    checkLows: document.getElementById(checkboxLowercase).checked,
+    checkNums: document.getElementById(checkboxNumbers).checked,
+    checkSpec: document.getElementById(checkboxSpecials).checked,
+  };
+  localStorage.setItem(localSettings, JSON.stringify(optionsSettings));
+  return true;
+}
+
+function tryLoadSettings() {
+  let optionsSettings = JSON.parse(localStorage.getItem(localSettings));
+  if (optionsSettings === null) return false;
+
+  document.getElementById(lengthId).value = optionsSettings.length;
+  updateLengthLabel();
+
+  document.getElementById(checkboxCapitals).checked = optionsSettings.checkCaps;
+  document.getElementById(checkboxLowercase).checked =
+    optionsSettings.checkLows;
+  document.getElementById(checkboxNumbers).checked = optionsSettings.checkNums;
+  document.getElementById(checkboxSpecials).checked = optionsSettings.checkSpec;
+
+  return true;
+}
+
 window.onload = function () {
   updateLengthLabel();
   setOutput('');
-  createOptionsEvents();
+  createOptionsListeners();
+  createLengthListeners();
+  tryLoadSettings();
 };
