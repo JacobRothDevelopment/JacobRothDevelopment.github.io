@@ -20,48 +20,22 @@ const hideOptionsClass = 'hidden';
 const localSettings = 'optionsSettings';
 //#endregion CONST
 
+//#region LISTENERS
 function createOptionsListeners() {
   document.getElementById(optionsButton).addEventListener('click', (ev) => {
-    console.log('optionsButton click');
-    updateOptionsHeight();
+    toggleOptionsHeight();
     updateButtonText();
   });
 }
 
 function createLengthListeners() {
   document.getElementById(lengthId).addEventListener('input', (ev) => {
-    console.log('lengthId input');
     updateLengthLabel();
   });
 }
+//#endregion LISTENERS
 
-function generatePassword() {
-  const chosenChars = getAvailableCharacters();
-  const length = document.getElementById(lengthId).value;
-
-  var password = '';
-  for (let i = 0; i < length; i++) {
-    const randomIndex = getRandomInt(0, chosenChars.length);
-    password += chosenChars[randomIndex];
-  }
-
-  setOutput(password);
-}
-
-function getAvailableCharacters() {
-  let chars = '';
-  chars += document.getElementById(checkboxCapitals).checked ? caps : '';
-  chars += document.getElementById(checkboxLowercase).checked ? lows : '';
-  chars += document.getElementById(checkboxNumbers).checked ? nums : '';
-  chars += document.getElementById(checkboxSpecials).checked ? spec : '';
-  return chars;
-}
-
-function updateLengthLabel() {
-  const length = document.getElementById(lengthId).value;
-  document.getElementById(lengthLabelId).innerHTML = length;
-}
-
+//#region BUTTON CLICKS
 function reset() {
   // reset length
   document.getElementById(lengthId).value = defaultLength;
@@ -80,6 +54,51 @@ function reset() {
   localStorage.removeItem(localSettings);
 }
 
+function copyToClipboard() {
+  const pw = document.getElementById(passwordId).innerHTML;
+  navigator.clipboard.writeText(pw);
+}
+
+function generatePassword() {
+  const chosenChars = getAvailableCharacters();
+  const length = document.getElementById(lengthId).value;
+
+  var password = '';
+  for (let i = 0; i < length; i++) {
+    const randomIndex = getRandomInt(0, chosenChars.length);
+    password += chosenChars[randomIndex];
+  }
+
+  setOutput(password);
+}
+
+function saveSettings() {
+  let optionsSettings = {
+    length: document.getElementById(lengthId).value,
+    checkCaps: document.getElementById(checkboxCapitals).checked,
+    checkLows: document.getElementById(checkboxLowercase).checked,
+    checkNums: document.getElementById(checkboxNumbers).checked,
+    checkSpec: document.getElementById(checkboxSpecials).checked,
+  };
+  localStorage.setItem(localSettings, JSON.stringify(optionsSettings));
+  return true;
+}
+//#endregion BUTTON CLICKS
+
+function getAvailableCharacters() {
+  let chars = '';
+  chars += document.getElementById(checkboxCapitals).checked ? caps : '';
+  chars += document.getElementById(checkboxLowercase).checked ? lows : '';
+  chars += document.getElementById(checkboxNumbers).checked ? nums : '';
+  chars += document.getElementById(checkboxSpecials).checked ? spec : '';
+  return chars;
+}
+
+function updateLengthLabel() {
+  const length = document.getElementById(lengthId).value;
+  document.getElementById(lengthLabelId).innerHTML = length;
+}
+
 function setOutput(string) {
   document.getElementById(passwordId).innerHTML = string;
 }
@@ -88,12 +107,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-function copyToClipboard() {
-  const pw = document.getElementById(passwordId).innerHTML;
-  navigator.clipboard.writeText(pw);
-}
-
-function updateOptionsHeight() {
+function toggleOptionsHeight() {
   let currentHeight = document.getElementById(optionsDiv).clientHeight;
   let childClientHeight =
     document.getElementById(optionsDiv).children[0].clientHeight;
@@ -108,18 +122,6 @@ function updateButtonText() {
 
 function setElementHeight(id, pixels) {
   document.getElementById(id).style.height = `${pixels}px`;
-}
-
-function saveSettings() {
-  let optionsSettings = {
-    length: document.getElementById(lengthId).value,
-    checkCaps: document.getElementById(checkboxCapitals).checked,
-    checkLows: document.getElementById(checkboxLowercase).checked,
-    checkNums: document.getElementById(checkboxNumbers).checked,
-    checkSpec: document.getElementById(checkboxSpecials).checked,
-  };
-  localStorage.setItem(localSettings, JSON.stringify(optionsSettings));
-  return true;
 }
 
 function tryLoadSettings() {
