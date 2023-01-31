@@ -39,8 +39,8 @@ table.table-layout-fixed {
 }
 /* #endregion TEXT */
 
-.overflow-x-scroll {
-  overflow-x: scroll;
+.overflow-x-auto {
+  overflow-x: auto;
 }
 
 .cursor-default {
