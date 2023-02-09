@@ -39,6 +39,8 @@
                 <div class="row">
                     <h1 class="my-4">Password Generator</h1>
                 </div>
+
+                <!-- #region INPUTS -->
                 <div class="row mb-2">
                     <div class="col-2 align-self-center">
                         <label class="form-label m-0" for="intLength">Length</label>
@@ -56,6 +58,7 @@
                         </button>
                     </div>
                 </div>
+
                 <div id="divOptions" class="row mb-2 options h-0">
                     <div class="col-12">
                         <div class="row justify-content-between">
@@ -90,23 +93,30 @@
                         </div>
                     </div>
                 </div>
+                <!-- #endregion -->
+
+                <!-- #region OUTPUT -->
                 <div class="row mb-2">
                     <div class="col">
-                        <div id="textOutput" type="text" class="form-control form-control-lg text-center overflow-auto">
+                        <div id="textOutput" type="text"
+                            class="form-control form-control-lg text-center overflow-auto no-wrap">
                         </div>
                     </div>
                 </div>
+                <!-- #endregion -->
+
+                <!-- #region BUTTONS -->
                 <div class="row mb-2">
                     <div class="col">
                         <button type="button" class="btn btn-primary w-100" onclick="generatePassword()">
-                            Click For New Password
+                            Generate Password
                         </button>
                     </div>
                 </div>
                 <div class="row mb-2">
                     <div class="col">
                         <button type="button" class="btn btn-info w-100" onclick="copyToClipboard()">
-                            Copy
+                            Copy to Clipboard
                         </button>
                     </div>
                 </div>
@@ -121,10 +131,11 @@
                 <div class="row mb-2">
                     <div class="col">
                         <button type="button" class="btn btn-danger w-100" onclick="reset()">
-                            Reset
+                            Reset Settings
                         </button>
                     </div>
                 </div>
+                <!-- #endregion -->
             </div>
         </div>
     </div>
