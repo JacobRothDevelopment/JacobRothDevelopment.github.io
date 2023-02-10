@@ -13,3 +13,4 @@
 
 1. Minecraft Item Farmable(s) Chart
    - list what items are AFK farmable, needs human interaction, or cannot be farmed
+2. KBICC example page
