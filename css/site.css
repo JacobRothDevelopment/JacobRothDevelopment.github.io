@@ -63,3 +63,7 @@ table.table-layout-fixed {
 .no-wrap {
   white-space: nowrap;
 }
+
+.resize-none {
+  resize: none;
+}
