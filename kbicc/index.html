@@ -38,7 +38,10 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-11 col-lg-10 col-xl-9 align-self-center">
                 <div class="row">
-                    <h1 class="my-4">KBicc Encryption</h1>
+                    <div class="d-flex justify-content-between">
+                        <h1 class="my-4">KBicc <span id="textTitleTitle">Encryption</span></h1>
+                        <input id="chkIsEncrypt" name="chkIsEncrypt" type="checkbox">
+                    </div>
                 </div>
                 <div class="row mb-2">
                     <div class="col-4 col-md-2">
@@ -53,14 +56,15 @@
                         <textarea id="textInput" name="textInput" class="form-control resize-none" rows="10"></textarea>
                     </div>
                     <div class="col-6">
-                        <textarea id="textOutput" name="textOutput" class="form-control resize-none" rows="10"
-                            disabled></textarea>
+                        <!-- <textarea id="textOutput" name="textOutput" class="form-control resize-none" rows="10"
+                            disabled></textarea> -->
+                        <div id="textOutput" name="textOutput" class="form-control resize-none h-100"></div>
                     </div>
                 </div>
 
                 <!-- #region BUTTONS -->
                 <button id="btnEncrypt" type="button" class="btn btn-secondary w-100 mb-2">
-                    Run Encryption
+                    Run <span id="textButtonTitle">Encryption</span>
                 </button>
                 <button id="btnReset" type="button" class="btn btn-danger w-100">
                     Reset

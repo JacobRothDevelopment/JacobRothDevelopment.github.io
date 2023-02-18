@@ -43,6 +43,10 @@ table.table-layout-fixed {
   overflow-x: auto;
 }
 
+.overflow-y-auto {
+  overflow-x: auto;
+}
+
 .cursor-default {
   cursor: default !important;
 }
