@@ -46,7 +46,7 @@ const cellClasses = {
   0: 'cell cell-black',
   '&#189;': 'cell cell-red',
   '': 'cell cell-white',
-  2: 'cell cell-green',
+  2: 'cell cell-lime',
   Normal: 'type-normal',
   Fire: 'type-fire',
   Water: 'type-water',
