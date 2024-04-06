@@ -38,7 +38,7 @@ $cellColors: blue, white, red, lime, black;
 }
 /* #endregion TEXT */
 
-/* #region MISC */
+/* #region MISC ALIGNMENT */
 @each $dir in ('x', 'y') {
   .overflow-#{$dir}-auto {
     overflow-#{$dir}: auto;

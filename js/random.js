@@ -3,13 +3,20 @@ const caps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const lows = 'abcdefghijklmnopqrstuvwxyz';
 const nums = '0123456789';
 const spec = '!@#$%^&*()-_=+,./\\|`~;:\'"[]{}';
+/* potential for basic specs
+
+! % * _ + ~ - [ ] { } # =
+! @ # $ % ^ & * ( ) - =
+
+*/
+// const extraSpecs = '';
 
 const lengthId = 'intLength';
 const passwordId = 'textOutput';
 const lengthLabelId = 'textLengthValue';
 const optionsButton = 'btnShowMore';
 const optionsDiv = 'divOptions';
-const defaultLength = 28;
+const defaultLength = 32;
 
 const checkboxCapitals = 'checkCaps';
 const checkboxLowercase = 'checkLows';
@@ -55,7 +62,7 @@ function reset() {
 }
 
 function copyToClipboard() {
-  const pw = document.getElementById(passwordId).innerHTML;
+  const pw = document.getElementById(passwordId).innerText;
   navigator.clipboard.writeText(pw);
 }
 
@@ -96,11 +103,11 @@ function getAvailableCharacters() {
 
 function updateLengthLabel() {
   const length = document.getElementById(lengthId).value;
-  document.getElementById(lengthLabelId).innerHTML = length;
+  document.getElementById(lengthLabelId).innerText = length;
 }
 
 function setOutput(string) {
-  document.getElementById(passwordId).innerHTML = string;
+  document.getElementById(passwordId).innerText = string;
 }
 
 function getRandomInt(min, max) {
