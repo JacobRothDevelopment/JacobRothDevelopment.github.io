@@ -1,4 +1,4 @@
-# TODO
+# To Do
 
 ## Changes and Upgrades
 
@@ -7,6 +7,10 @@
 1. Custom styling. Just anything but the default bootstrap button colors. Good god I hate them
 2. Add "custom format" option (eg "xxx-xxx-xxx-xxx-xxx")
 3. Add positive feedback animation to "copy to clipboard" and "save settings"
+
+### Yugioh score tracker
+
+1. more customizations with settings (base LP, names)
 
 ---
 
@@ -17,3 +21,4 @@
 2. Add KBicc Decryption
 3. Chaos Page!!!
 4. Yugioh score page
+5. Pokemon natures chart
