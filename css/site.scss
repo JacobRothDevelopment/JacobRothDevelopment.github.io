@@ -74,3 +74,11 @@ $i: 0;
   resize: none;
 }
 /* #endregion MISC */
+
+/* #region BOOTSTRAP OVERRIDES */
+.btn,
+.form-control,
+.form-select {
+  border-radius: 0;
+}
+/* #endregion */

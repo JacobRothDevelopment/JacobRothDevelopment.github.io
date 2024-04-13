@@ -478,4 +478,12 @@ table.table-layout-fixed {
   resize: none;
 }
 
-/* #endregion MISC *//*# sourceMappingURL=site.css.map */
+/* #endregion MISC */
+/* #region BOOTSTRAP OVERRIDES */
+.btn,
+.form-control,
+.form-select {
+  border-radius: 0;
+}
+
+/* #endregion *//*# sourceMappingURL=site.css.map */

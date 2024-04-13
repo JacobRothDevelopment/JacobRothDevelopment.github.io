@@ -16,11 +16,10 @@
         crossorigin="anonymous"></script>
 
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.2.1/css/all.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.5.2/css/all.css">
 
     <!-- CUSTOM -->
     <link rel="stylesheet" href="/css/site.css">
-    <script src="/js/random.js"></script>
 </head>
 
 <body>
@@ -48,18 +47,13 @@
                     <div class="col-1 align-self-center">
                         <label id="textLengthValue" class="form-label m-0" for="intLength">00</label>
                     </div>
-                    <div class="col-7 col-md-8">
+                    <div class="col-9">
                         <input id="intLength" type="range" class="form-control form-control-sm" step="1" min="8"
-                            max="48" onchange="updateLengthLabel()">
-                    </div>
-                    <div class="col-2 col-md-1">
-                        <button id="btnShowMore" class="w-100 btn btn-sm btn-outline-secondary">
-                            &and;
-                        </button>
+                            max="64" onchange="updateLengthLabel()">
                     </div>
                 </div>
 
-                <div id="divOptions" class="row mb-2 options h-0">
+                <div id="divOptions" class="row mb-2 options">
                     <div class="col-12">
                         <div class="row justify-content-between">
                             <div class="w-auto">
@@ -105,40 +99,25 @@
                 </div>
                 <!-- #endregion -->
 
-                <!-- #region BUTTONS -->
-                <div class="row mb-2">
-                    <div class="col">
-                        <button type="button" class="btn btn-primary w-100" onclick="generatePassword()">
-                            Generate Password
-                        </button>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col">
-                        <button type="button" class="btn btn-info w-100" onclick="copyToClipboard()">
-                            Copy to Clipboard
-                        </button>
-                    </div>
-                </div>
                 <hr>
-                <div class="row mb-2">
-                    <div class="col">
-                        <button type="button" class="btn btn-success w-100" onclick="saveSettings()">
-                            Save Settings to Browser
-                        </button>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col">
-                        <button type="button" class="btn btn-danger w-100" onclick="reset()">
-                            Reset Settings
-                        </button>
-                    </div>
+
+                <!-- #region BUTTONS -->
+                <div class="mb-2 d-flex">
+                    <button type="button" class="btn btn-primary w-100" onclick="generatePassword()">
+                        Generate Password
+                    </button>
+                    <button type="button" class="btn btn-info w-100" onclick="copyToClipboard()">
+                        Copy to Clipboard
+                    </button>
                 </div>
                 <!-- #endregion -->
+
+
             </div>
         </div>
     </div>
+
+    <script src="/js/random.js"></script>
 </body>
 
 </html>
