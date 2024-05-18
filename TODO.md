@@ -11,6 +11,8 @@
 ### Yugioh score tracker
 
 1. more customizations with settings (base LP, names)
+2. also just less janky
+3. on exit/refresh "are you sure" pop up
 
 ---
 

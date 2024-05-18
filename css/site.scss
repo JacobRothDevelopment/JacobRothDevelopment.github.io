@@ -82,3 +82,27 @@ $i: 0;
   border-radius: 0;
 }
 /* #endregion */
+
+/* #region BOOTSTRAP EXTRAS */
+
+$bootstrapStyles: 'primary', 'secondary', 'success', 'info', 'warning', 'danger',
+  'light', 'dark';
+
+@each $style in $bootstrapStyles {
+  .outline-#{$style} {
+    outline-color: var(--bs-#{$style}) !important;
+  }
+}
+
+/* #endregion */
+
+.animate-border {
+  outline-color: white;
+  outline-width: 0px;
+  outline-style: solid;
+  transition: all 0.1s ease;
+}
+
+.animate-border.go {
+  outline-width: 2px;
+}

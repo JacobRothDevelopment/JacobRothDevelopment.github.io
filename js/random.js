@@ -15,7 +15,8 @@ const spec = '!@#$%^&*()-_=+,./\\|`~;:\'"[]{}';
 const inputLength = document.getElementById('intLength');
 const passwordOutput = document.getElementById('textOutput');
 const lengthLabel = document.getElementById('textLengthValue');
-const defaultLength = 32;
+const defaultLength = 32; // chars
+const transitionTime = 160; // ms
 
 const checkboxCapitals = document.getElementById('checkCaps');
 const checkboxLowercase = document.getElementById('checkLows');
@@ -55,6 +56,8 @@ function reset() {
 function copyToClipboard() {
   const pw = passwordOutput.innerText;
   navigator.clipboard.writeText(pw);
+
+  flashOutline('outline-info');
 }
 
 function generatePassword() {
@@ -68,9 +71,17 @@ function generatePassword() {
   }
 
   setOutput(password);
+  flashOutline('outline-primary');
 }
 
 //#endregion BUTTON CLICKS
+
+function flashOutline(borderClass) {
+  passwordOutput.classList.add('go', borderClass);
+  window.setTimeout(() => {
+    passwordOutput.classList.remove('go', borderClass);
+  }, transitionTime);
+}
 
 function getAvailableCharacters() {
   let chars = '';
@@ -97,5 +108,4 @@ function getRandomInt(min, max) {
 window.onload = function () {
   updateLengthLabel();
   setOutput('');
-  createLengthListeners();
 };

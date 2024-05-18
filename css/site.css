@@ -486,4 +486,48 @@ table.table-layout-fixed {
   border-radius: 0;
 }
 
-/* #endregion *//*# sourceMappingURL=site.css.map */
+/* #endregion */
+/* #region BOOTSTRAP EXTRAS */
+.outline-primary {
+  outline-color: var(--bs-primary) !important;
+}
+
+.outline-secondary {
+  outline-color: var(--bs-secondary) !important;
+}
+
+.outline-success {
+  outline-color: var(--bs-success) !important;
+}
+
+.outline-info {
+  outline-color: var(--bs-info) !important;
+}
+
+.outline-warning {
+  outline-color: var(--bs-warning) !important;
+}
+
+.outline-danger {
+  outline-color: var(--bs-danger) !important;
+}
+
+.outline-light {
+  outline-color: var(--bs-light) !important;
+}
+
+.outline-dark {
+  outline-color: var(--bs-dark) !important;
+}
+
+/* #endregion */
+.animate-border {
+  outline-color: white;
+  outline-width: 0px;
+  outline-style: solid;
+  transition: all 0.1s ease;
+}
+
+.animate-border.go {
+  outline-width: 2px;
+}/*# sourceMappingURL=site.css.map */
