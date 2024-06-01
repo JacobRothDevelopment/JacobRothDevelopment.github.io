@@ -96,13 +96,17 @@ $bootstrapStyles: 'primary', 'secondary', 'success', 'info', 'warning', 'danger'
 
 /* #endregion */
 
+/* #region ANIMATIONS */
+
 .animate-border {
   outline-color: white;
   outline-width: 0px;
   outline-style: solid;
-  transition: all 0.1s ease;
+  transition: all 0.05s linear;
 }
 
 .animate-border.go {
   outline-width: 2px;
 }
+
+/* #endregion */

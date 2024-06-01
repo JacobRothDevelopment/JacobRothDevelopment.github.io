@@ -16,7 +16,7 @@ const inputLength = document.getElementById('intLength');
 const passwordOutput = document.getElementById('textOutput');
 const lengthLabel = document.getElementById('textLengthValue');
 const defaultLength = 32; // chars
-const transitionTime = 160; // ms
+const transitionTime = 100; // ms
 
 const checkboxCapitals = document.getElementById('checkCaps');
 const checkboxLowercase = document.getElementById('checkLows');
@@ -76,6 +76,10 @@ function generatePassword() {
 
 //#endregion BUTTON CLICKS
 
+/**
+ * assigns `go` class and given border class, removing it after `transitionTime` ms
+ * @param {string} borderClass
+ */
 function flashOutline(borderClass) {
   passwordOutput.classList.add('go', borderClass);
   window.setTimeout(() => {
@@ -108,4 +112,5 @@ function getRandomInt(min, max) {
 window.onload = function () {
   updateLengthLabel();
   setOutput('');
+  generatePassword();
 };
