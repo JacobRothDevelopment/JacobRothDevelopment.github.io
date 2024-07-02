@@ -1,0 +1,21 @@
+a#debugFlag {
+  content: '';
+  position: absolute;
+  background-color: rgba(255, 140, 0, 0.2);
+  z-index: 1000;
+  width: 30px;
+  height: 25px;
+  top: -10px;
+  right: 10%;
+  transition: all 0.4s ease;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+a#debugFlag:hover {
+  height: 38px;
+  background-color: rgba(255, 140, 0);
+  box-shadow: 2px 2px 5px grey;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
