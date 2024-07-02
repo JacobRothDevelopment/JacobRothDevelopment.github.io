@@ -79,6 +79,10 @@ function generatePassword() {
 
 //#endregion BUTTON CLICKS
 
+/**
+ * assigns `go` class and given border class, removing it after `transitionTime` ms
+ * @param {string} borderClass
+ */
 function flashOutline(borderClass) {
   passwordOutput.classList.add(borderClass, 'go');
 
@@ -118,4 +122,5 @@ function getRandomInt(min, max) {
 window.onload = function () {
   updateLengthLabel();
   setOutput('');
+  generatePassword();
 };
