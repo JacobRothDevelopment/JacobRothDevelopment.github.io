@@ -16,6 +16,7 @@ const inputLength = document.getElementById('intLength');
 const passwordOutput = document.getElementById('textOutput');
 const lengthLabel = document.getElementById('textLengthValue');
 const defaultLength = 32; // chars
+// const transitionTime = 2000; // ms
 const transitionTime = 160; // ms
 
 const checkboxCapitals = document.getElementById('checkCaps');
@@ -28,6 +29,7 @@ const localSettings = 'optionsSettings';
 //#endregion CONST
 
 //#region LISTENERS
+
 inputLength.addEventListener('input', (ev) => {
   updateLengthLabel();
 });
@@ -35,6 +37,7 @@ inputLength.addEventListener('input', (ev) => {
 //#endregion LISTENERS
 
 //#region BUTTON CLICKS
+
 function reset() {
   // reset length
   inputLength.value = defaultLength;
@@ -57,7 +60,7 @@ function copyToClipboard() {
   const pw = passwordOutput.innerText;
   navigator.clipboard.writeText(pw);
 
-  flashOutline('outline-info');
+  flashOutline('outline-secondary');
 }
 
 function generatePassword() {
@@ -77,10 +80,17 @@ function generatePassword() {
 //#endregion BUTTON CLICKS
 
 function flashOutline(borderClass) {
-  passwordOutput.classList.add('go', borderClass);
+  passwordOutput.classList.add(borderClass, 'go');
+
+  //remove wider outline
   window.setTimeout(() => {
-    passwordOutput.classList.remove('go', borderClass);
+    passwordOutput.classList.remove('go');
   }, transitionTime);
+
+  //remove outline color
+  window.setTimeout(() => {
+    passwordOutput.classList.remove(borderClass, 'go');
+  }, transitionTime * 2);
 }
 
 function getAvailableCharacters() {

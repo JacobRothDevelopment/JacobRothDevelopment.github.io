@@ -1,3 +1,7 @@
+:root {
+  --icon-transition: 0.2s ease;
+}
+
 /* #region TABLE STYLES */
 table.table-borderless td,
 table.table-borderless tr {
@@ -96,13 +100,35 @@ $bootstrapStyles: 'primary', 'secondary', 'success', 'info', 'warning', 'danger'
 
 /* #endregion */
 
+/* #region ANIMATIONS */
+
 .animate-border {
-  outline-color: white;
+  outline-color: transparent;
   outline-width: 0px;
   outline-style: solid;
-  transition: all 0.1s ease;
+  transition: background-color var(--standard-theme-transition),
+    border-color var(--standard-theme-transition), outline-width 0.1s ease,
+    outline-color 0.1s ease !important;
 }
 
 .animate-border.go {
-  outline-width: 2px;
+  outline-width: 3px;
 }
+
+nav a:hover .fa-brands.fa-github,
+nav a:hover .fa-solid.fa-house {
+  transform: scale(150%, 150%);
+  rotate: 360deg;
+  text-shadow: 0 0 20px grey;
+  transition: transform var(--icon-transition),
+    text-shadow var(--icon-transition), rotate var(--icon-transition);
+}
+
+nav a .fa-brands.fa-github,
+nav a .fa-solid.fa-house {
+  color: white;
+  transition: transform var(--icon-transition),
+    text-shadow var(--icon-transition);
+}
+
+/* #endregion */
