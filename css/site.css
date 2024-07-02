@@ -526,14 +526,14 @@ table.table-layout-fixed {
 
 /* #endregion */
 /* #region ANIMATIONS */
-.animate-border {
+.animate-outline {
   outline-color: transparent;
   outline-width: 0px;
   outline-style: solid;
-  transition: background-color var(--standard-theme-transition), border-color var(--standard-theme-transition), outline-width 0.1s ease, outline-color 0.1s ease !important;
+  transition: background-color var(--standard-theme-transition), color var(--standard-theme-transition), outline-width 0.1s ease, outline-color 0.1s ease !important;
 }
 
-.animate-border.go {
+.animate-outline.go {
   outline-width: 3px;
 }
 
