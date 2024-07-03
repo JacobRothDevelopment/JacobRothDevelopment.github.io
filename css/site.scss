@@ -2,32 +2,6 @@
   --icon-transition: 0.2s ease;
 }
 
-/* #region TABLE STYLES */
-table.table-borderless td,
-table.table-borderless tr {
-  border: none;
-}
-
-table.table-layout-fixed {
-  table-layout: fixed;
-}
-
-.cell {
-  border: black 1px solid;
-}
-
-$cellColors: blue, white, red, lime, black;
-
-@each $color in $cellColors {
-  .cell.cell-#{'' + $color} {
-    background-color: #{'rgba(#{red($color)}, #{green($color)}, #{blue($color)}, 0.7)'};
-    @if $color == black {
-      color: white;
-    }
-  }
-}
-/* #endregion TABLE STYLES */
-
 /* #region TEXT */
 .write-vertical {
   writing-mode: vertical-lr;

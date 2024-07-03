@@ -97,136 +97,144 @@
 }
 
 select[data-selected-type=normal] {
-  background: linear-gradient(to bottom right, white 50%, var(--normal)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--normal)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=fire] {
-  background: linear-gradient(to bottom right, white 50%, var(--fire)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--fire)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=water] {
-  background: linear-gradient(to bottom right, white 50%, var(--water)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--water)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=electric] {
-  background: linear-gradient(to bottom right, white 50%, var(--electric)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--electric)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=grass] {
-  background: linear-gradient(to bottom right, white 50%, var(--grass)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--grass)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=ice] {
-  background: linear-gradient(to bottom right, white 50%, var(--ice)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--ice)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=fighting] {
-  background: linear-gradient(to bottom right, white 50%, var(--fighting)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--fighting)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=poison] {
-  background: linear-gradient(to bottom right, white 50%, var(--poison)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--poison)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=ground] {
-  background: linear-gradient(to bottom right, white 50%, var(--ground)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--ground)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=flying] {
-  background: linear-gradient(to bottom right, white 50%, var(--flying)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--flying)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=psychic] {
-  background: linear-gradient(to bottom right, white 50%, var(--psychic)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--psychic)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=bug] {
-  background: linear-gradient(to bottom right, white 50%, var(--bug)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--bug)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=rock] {
-  background: linear-gradient(to bottom right, white 50%, var(--rock)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--rock)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=ghost] {
-  background: linear-gradient(to bottom right, white 50%, var(--ghost)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--ghost)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=dragon] {
-  background: linear-gradient(to bottom right, white 50%, var(--dragon)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--dragon)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=dark] {
-  background: linear-gradient(to bottom right, white 50%, var(--dark)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--dark)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=steel] {
-  background: linear-gradient(to bottom right, white 50%, var(--steel)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--steel)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=fairy] {
-  background: linear-gradient(to bottom right, white 50%, var(--fairy)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--fairy)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
 }
 
 select[data-selected-type=null] {
-  background: linear-gradient(to bottom right, white 50%, var(--null)) !important;
+  background: linear-gradient(to bottom right, var(--null) 25%, var(--null)) !important;
   -webkit-appearance: revert;
      -moz-appearance: revert;
           appearance: revert;
+}
+
+body.dark select {
+  color: white;
+}
+
+body.dark {
+  --null: black;
 }
 
 /* #region ADVANTAGES */
@@ -251,7 +259,7 @@ select[data-selected-type=null] {
 }
 
 .advantage-2 {
-  background-color: green !important;
+  background-color: darkgreen !important;
   color: lightgrey;
 }
 
@@ -260,10 +268,74 @@ select[data-selected-type=null] {
   color: white;
 }
 
-/* #endregion ADVANTAGES */
+body.dark .advantage-0 {
+  background-color: black !important;
+  color: grey !important;
+}
+body.dark .advantage-half {
+  background-color: black !important;
+  color: lightgrey !important;
+}
+body.dark .advantage-quarter {
+  background-color: black !important;
+  color: lightgrey;
+}
+body.dark .advantage-1 {
+  background-color: black !important;
+  color: lightgrey;
+}
+body.dark .advantage-2 {
+  background-color: darkgreen !important;
+  color: lightgrey;
+}
+body.dark .advantage-4 {
+  background-color: green !important;
+  color: white;
+}
+
+/* #endregion */
 /* #region MISC */
 table.pokemon-types {
   min-width: 500px;
 }
 
-/* #endregion MISC *//*# sourceMappingURL=pokemon.css.map */
+/* #endregion */
+/* #region TABLE STYLES */
+table.table-borderless td,
+table.table-borderless tr {
+  border: none;
+}
+
+table.table-layout-fixed {
+  table-layout: fixed;
+}
+
+.cell {
+  border-color: rgba(128, 128, 128, 0.5);
+  border-width: 1px;
+  border-style: solid;
+}
+
+.cell.cell-blue {
+  background-color: rgba(0, 0, 255, 0.7);
+}
+
+.cell.cell-red {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.cell.cell-lime {
+  background-color: rgba(0, 255, 0, 0.7);
+}
+
+.cell.cell-black {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+.cell.cell-white {
+  background-color: transparent;
+  color: black;
+}
+
+/* #endregion *//*# sourceMappingURL=pokemon.css.map */

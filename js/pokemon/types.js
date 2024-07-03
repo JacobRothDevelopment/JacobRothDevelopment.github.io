@@ -144,7 +144,7 @@ function createTable() {
     types,
     '',
     '',
-    'cell p-1 write-vertical align-top font-weight-bold'
+    'cell p-1 write-vertical align-top font-weight-bold',
   );
   tbody.innerHTML += defendingRow.innerHTML;
 
@@ -154,7 +154,7 @@ function createTable() {
       valuesMatrix[i],
       attackingType,
       '',
-      'p-1 text-center text-right'
+      'p-1 text-center text-right',
     );
     tbody.innerHTML += row.innerHTML;
   }
@@ -179,7 +179,7 @@ function createRow(row, type, rowClass, cellClass) {
   tr.classList += rowClass;
   let typeCell = createCell(
     type,
-    `cell p-1 font-weight-bold ${cellClasses[type]}`
+    `cell p-1 font-weight-bold ${cellClasses[type]}`,
   );
   typeCell.colSpan = 3;
   tr.innerHTML += typeCell.outerHTML;
@@ -189,7 +189,7 @@ function createRow(row, type, rowClass, cellClass) {
 
     let valueCell = createCell(
       advantage,
-      `${cellClass} ${cellClasses[advantage]}`
+      `${cellClass} ${cellClasses[advantage]}`,
     );
     tr.innerHTML += valueCell.outerHTML;
   }
@@ -260,7 +260,7 @@ function updateOutput() {
   let output = document.getElementById('textOutput');
   output.innerHTML = outputConfig[advantage].text;
   output.value = outputConfig[advantage].text;
-  output.classList = `form-control form-control-sm cursor-default ${outputConfig[advantage].class}`;
+  output.classList = `form-control cursor-default ${outputConfig[advantage].class}`;
 }
 
 function createSelectListeners() {

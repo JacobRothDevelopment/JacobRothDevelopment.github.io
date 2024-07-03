@@ -2,42 +2,6 @@
   --icon-transition: 0.2s ease;
 }
 
-/* #region TABLE STYLES */
-table.table-borderless td,
-table.table-borderless tr {
-  border: none;
-}
-
-table.table-layout-fixed {
-  table-layout: fixed;
-}
-
-.cell {
-  border: black 1px solid;
-}
-
-.cell.cell-blue {
-  background-color: rgba(0, 0, 255, 0.7);
-}
-
-.cell.cell-white {
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-.cell.cell-red {
-  background-color: rgba(255, 0, 0, 0.7);
-}
-
-.cell.cell-lime {
-  background-color: rgba(0, 255, 0, 0.7);
-}
-
-.cell.cell-black {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-}
-
-/* #endregion TABLE STYLES */
 /* #region TEXT */
 .write-vertical {
   writing-mode: vertical-lr;

@@ -36,14 +36,23 @@ $advantages: '0', 'half', 'quarter', '1', '2', '4';
   select[data-selected-type='#{$type}'] {
     background: linear-gradient(
       to bottom right,
-      white 50%,
+      var(--null) 25%,
       var(--#{$type})
     ) !important;
     appearance: revert;
   }
 }
 
+body.dark select {
+  color: white;
+}
+
+body.dark {
+  --null: black;
+}
+
 /* #region ADVANTAGES */
+
 .advantage-0 {
   background-color: black !important;
   color: lightgrey;
@@ -61,17 +70,89 @@ $advantages: '0', 'half', 'quarter', '1', '2', '4';
   color: black;
 }
 .advantage-2 {
-  background-color: green !important;
+  background-color: darkgreen !important;
   color: lightgrey;
 }
 .advantage-4 {
   background-color: green !important;
   color: white;
 }
-/* #endregion ADVANTAGES */
+
+body.dark {
+  .advantage-0 {
+    background-color: black !important;
+    color: grey !important;
+  }
+
+  .advantage-half {
+    background-color: black !important;
+    color: lightgrey !important;
+  }
+
+  .advantage-quarter {
+    background-color: black !important;
+    color: lightgrey;
+  }
+
+  .advantage-1 {
+    background-color: black !important;
+    color: lightgrey;
+  }
+
+  .advantage-2 {
+    background-color: darkgreen !important;
+    color: lightgrey;
+  }
+
+  .advantage-4 {
+    background-color: green !important;
+    color: white;
+  }
+}
+
+/* #endregion */
 
 /* #region MISC */
 table.pokemon-types {
   min-width: 500px;
 }
-/* #endregion MISC */
+/* #endregion */
+
+/* #region TABLE STYLES */
+
+table.table-borderless td,
+table.table-borderless tr {
+  border: none;
+}
+
+table.table-layout-fixed {
+  table-layout: fixed;
+}
+
+.cell {
+  border-color: rgba(128, 128, 128, 0.5);
+  border-width: 1px;
+  border-style: solid;
+}
+
+// body.dark .cell {
+//   border-color: transparent;
+// }
+
+$cellColors: blue, red, lime, black;
+
+@each $color in $cellColors {
+  .cell.cell-#{'' + $color} {
+    background-color: #{'rgba(#{red($color)}, #{green($color)}, #{blue($color)}, 0.7)'};
+    @if $color == black {
+      color: white;
+    }
+  }
+}
+
+.cell.cell-white {
+  background-color: transparent;
+  color: black;
+}
+
+/* #endregion */
