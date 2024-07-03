@@ -10,6 +10,8 @@
   --dark-mode-toggle-offset: 20px;
 
   /* --standard-theme-transition: 0.4s ease-in-out; */
+  --dark-bg: hsl(0, 0%, 6%);
+  --dark-input-bg: hsl(0, 0%, 10%);
 }
 
 /* #region TOGGLE BUTTON */
@@ -102,8 +104,7 @@ body {
 input,
 select,
 table {
-  transition: background-color var(--standard-theme-transition),
-    border-color var(--standard-theme-transition);
+  transition: all var(--standard-theme-transition);
 }
 
 body input:focus {
@@ -120,17 +121,17 @@ body .form-control {
 }
 
 body.dark {
-  background-color: hsl(0, 0%, 6%);
+  background-color: var(--dark-bg);
   color: white;
 }
 
 body.dark input,
 body.dark select {
-  background-color: hsl(0, 0%, 10%);
+  background-color: var(--dark-input-bg);
 }
 
 body.dark input:focus {
-  background-color: hsl(0, 0%, 10%) !important;
+  background-color: var(--dark-input-bg) !important;
 }
 
 body.dark a {
@@ -139,7 +140,7 @@ body.dark a {
 
 body.dark .form-control {
   color: white;
-  background-color: hsl(0, 0%, 10%);
+  background-color: var(--dark-input-bg);
 }
 
 body.dark table {
