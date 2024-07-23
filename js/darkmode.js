@@ -4,14 +4,6 @@ const storageBodyClass = 'bodyClass';
 const themeTransitionVar = '--standard-theme-transition';
 const themeTransitionVal = '0.4s ease-in-out';
 
-function loadCss(cssFileName) {
-  var cssLink = document.createElement('link');
-  cssLink.rel = 'stylesheet';
-  cssLink.type = 'text/css';
-  cssLink.href = cssFileName;
-  document.getElementsByTagName('head')[0].appendChild(cssLink);
-}
-
 /**
  * create toggle button element
  */
@@ -46,7 +38,6 @@ function setTransitionTime() {
   );
 }
 
-loadCss('/css/darkmode.css');
 loadTheme();
 createToggle();
 window.addEventListener('load', setTransitionTime, false);
