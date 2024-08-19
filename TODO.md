@@ -5,14 +5,12 @@
 ### Password Generator
 
 1. Custom styling. Just anything but the default bootstrap button colors. Good god I hate them
-2. Add "custom format" option (eg "xxx-xxx-xxx-xxx-xxx")
-3. Add positive feedback animation to "copy to clipboard" and "save settings"
 
 ### Yugioh score tracker
 
 1. more customizations with settings (base LP, names)
 2. also just less janky
-3. on exit/refresh "are you sure" pop up
+3. on exit/refresh/reset "are you sure" pop up
 
 ---
 
