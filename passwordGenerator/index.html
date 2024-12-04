@@ -44,6 +44,28 @@
 
                 <!-- #region INPUTS -->
                 <div class="row mb-2">
+                    <div class="col-2">
+                        <label class="form-label m-0" for="selectPreset">Preset</label>
+                    </div>
+                    <div class="col-10">
+                        <select id="selectPreset" class="form-select form-control form-select-sm" name="selectPreset">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-2" data-toggle="tooltip" data-placement="top"
+                    title="all 'x' characters will be replaced by random password characters">
+                    <div class="col-2">
+                        <label class="form-label m-0" for="textFormat">
+                            Format
+                        </label>
+                    </div>
+                    <div class="col-10">
+                        <input id="textFormat" type="text" class="form-control form-control-sm">
+                    </div>
+                </div>
+
+                <div class="row mb-2">
                     <div class="col-2 align-self-center">
                         <label class="form-label m-0" for="intLength">Length</label>
                     </div>

@@ -117,7 +117,8 @@ body a {
 
 body .form-control {
   transition: background-color var(--standard-theme-transition),
-    color var(--standard-theme-transition);
+    color var(--standard-theme-transition),
+    border var(--standard-theme-transition);
 }
 
 body.dark {
@@ -143,8 +144,9 @@ body.dark .form-control {
   background-color: var(--dark-input-bg);
 }
 
-body.dark table {
+body.dark .form-control:disabled {
   border-color: dimgray;
+  background-color: hsl(0, 0%, 15%);
 }
 
 /* #endregion */
