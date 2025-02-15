@@ -148,6 +148,9 @@ function createTable() {
   );
   tbody.innerHTML += defendingRow.innerHTML;
 
+  let teraRow = createRow(getTeraIconsRow(), '', '', 'cell tera');
+  tbody.innerHTML += teraRow.innerHTML;
+
   for (let i = 0; i < types.length; i++) {
     const attackingType = types[i];
     const row = createRow(
@@ -286,6 +289,24 @@ function updateSelectsStyle() {
     let select = document.getElementById(selectId);
     updateSelectStyle(select);
   }
+}
+
+/**
+ * @param {string} type
+ */
+function getTeraIcon(type) {
+  const typeLower = type.toLowerCase();
+  return `https://www.serebii.net/pokedex-sv/teraicon/${typeLower}.png`;
+}
+
+function getTeraIconsRow() {
+  var links = [];
+  for (let i = 0; i < types.length; i++) {
+    const link = getTeraIcon(types[i]);
+    const element = `<img src="${link}" />`;
+    links.push(element);
+  }
+  return links;
 }
 
 // #region ON LOAD

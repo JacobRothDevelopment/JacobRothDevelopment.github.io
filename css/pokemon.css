@@ -293,6 +293,10 @@ body.dark .advantage-4 {
   color: white;
 }
 
+.cell.tera img {
+  width: 100%;
+}
+
 /* #endregion */
 /* #region MISC */
 table.pokemon-types {
