@@ -140,15 +140,10 @@ function createTable() {
   let tbody = document.createElement('tbody');
   const valuesMatrix = createTableValuesMatrix();
 
-  let defendingRow = createRow(
-    types,
-    '',
-    '',
-    'cell p-1 write-vertical align-top font-weight-bold',
-  );
+  let defendingRow = createTypesRow();
   tbody.innerHTML += defendingRow.innerHTML;
 
-  let teraRow = createRow(getTeraIconsRow(), '', '', 'cell tera');
+  let teraRow = createTeraIconsRow();
   tbody.innerHTML += teraRow.innerHTML;
 
   for (let i = 0; i < types.length; i++) {
@@ -161,7 +156,6 @@ function createTable() {
     );
     tbody.innerHTML += row.innerHTML;
   }
-
   // set table data
   /**
    * @type {HTMLTableElement}
@@ -180,12 +174,19 @@ function createTable() {
 function createRow(row, type, rowClass, cellClass) {
   let tr = document.createElement('tr');
   tr.classList += rowClass;
-  let typeCell = createCell(
-    type,
-    `cell p-1 font-weight-bold ${cellClasses[type]}`,
-  );
+
+  // type label
+  var cellTypeClass = '';
+  if (type.length > 0) cellTypeClass = cellClasses[type];
+  let typeCell = createCell(type, `cell p-1 font-weight-bold ${cellTypeClass}`);
   typeCell.colSpan = 3;
   tr.innerHTML += typeCell.outerHTML;
+
+  // tera icon
+  const iconLink = getTeraIcon(type);
+  const iconElement = `<img src="${iconLink}" />`;
+  let valueCell = createCell(iconElement, `cell tera ${cellClasses[type]}`);
+  tr.innerHTML += valueCell.outerHTML;
 
   for (let i = 0; i < types.length; i++) {
     const advantage = row[i];
@@ -193,6 +194,57 @@ function createRow(row, type, rowClass, cellClass) {
     let valueCell = createCell(
       advantage,
       `${cellClass} ${cellClasses[advantage]}`,
+    );
+    tr.innerHTML += valueCell.outerHTML;
+  }
+
+  return tr;
+}
+
+function createTeraIconsRow() {
+  let tr = document.createElement('tr');
+
+  // type label
+  let typeCell = createCell('Attacking', `cell p-1 font-weight-bold`);
+  typeCell.colSpan = 3;
+  tr.innerHTML += typeCell.outerHTML;
+
+  // vertical tera cell
+  let teraCell = createCell('', `cell`);
+  tr.innerHTML += teraCell.outerHTML;
+
+  for (let i = 0; i < types.length; i++) {
+    const iconLink = getTeraIcon(types[i]);
+    const element = `<img src="${iconLink}" />`;
+
+    let valueCell = createCell(element, `cell tera ${cellClasses[types[i]]}`);
+    tr.innerHTML += valueCell.outerHTML;
+  }
+
+  return tr;
+}
+
+function createTypesRow() {
+  let tr = document.createElement('tr');
+
+  // type label
+  let typeCell = createCell('', `cell`);
+  typeCell.colSpan = 3;
+  tr.innerHTML += typeCell.outerHTML;
+
+  // vertical tera cell
+  let teraCell = createCell(
+    'DeFending',
+    `cell p-1 write-vertical align-top font-weight-bold`,
+  );
+  tr.innerHTML += teraCell.outerHTML;
+
+  for (let i = 0; i < types.length; i++) {
+    const advantage = types[i];
+
+    let valueCell = createCell(
+      advantage,
+      `cell p-1 write-vertical align-top font-weight-bold ${cellClasses[advantage]}`,
     );
     tr.innerHTML += valueCell.outerHTML;
   }
@@ -299,7 +351,7 @@ function getTeraIcon(type) {
   return `https://www.serebii.net/pokedex-sv/teraicon/${typeLower}.png`;
 }
 
-function getTeraIconsRow() {
+function getTeraIconsList() {
   var links = [];
   for (let i = 0; i < types.length; i++) {
     const link = getTeraIcon(types[i]);
