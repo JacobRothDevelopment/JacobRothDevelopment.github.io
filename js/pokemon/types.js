@@ -185,7 +185,10 @@ function createRow(row, type, rowClass, cellClass) {
   // tera icon
   const iconLink = getTeraIcon(type);
   const iconElement = `<img src="${iconLink}" />`;
-  let valueCell = createCell(iconElement, `cell tera ${cellClasses[type]}`);
+  let valueCell = createCell(
+    iconElement,
+    `cell tera text-center ${cellClasses[type]}`,
+  );
   tr.innerHTML += valueCell.outerHTML;
 
   for (let i = 0; i < types.length; i++) {
@@ -217,7 +220,10 @@ function createTeraIconsRow() {
     const iconLink = getTeraIcon(types[i]);
     const element = `<img src="${iconLink}" />`;
 
-    let valueCell = createCell(element, `cell tera ${cellClasses[types[i]]}`);
+    let valueCell = createCell(
+      element,
+      `cell tera text-center ${cellClasses[types[i]]}`,
+    );
     tr.innerHTML += valueCell.outerHTML;
   }
 

@@ -294,7 +294,8 @@ body.dark .advantage-4 {
 }
 
 .cell.tera img {
-  width: 100%;
+  max-width: 100%;
+  height: 32px;
 }
 
 /* #endregion */
